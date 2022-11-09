@@ -1,6 +1,8 @@
 import config from "../config.json";
 import styled from "styled-components";
 
+import { GlobalStyle } from "../src/components/GlobalStyle";
+
 
 const StyledHeader = styled.header`
   img {
@@ -60,6 +62,7 @@ function TimeLine({ playlists }) {
 function HomePage() {
   return (
     <>
+      <GlobalStyle/>
       <Header />
       <TimeLine playlists={config.playlists} />
     </>
