@@ -25,13 +25,13 @@ function Header() {
   return (
     <StyledHeader>
       <img src="" alt="Banner" />
-      <section className="user-info">
+      <div className="user-info">
         <img src={`https://github.com/${config.github}.png`} alt="Foto de perfil" />
         <div>
           <h2>{config.name}</h2>
           <p>{config.job}</p>
         </div>
-      </section>
+      </div>
     </StyledHeader>
   )
 }
@@ -42,9 +42,15 @@ function HomePage() {
   return (
     <>
       <GlobalStyle/>
-      <Menu/>
-      <Header />
-      <TimeLine playlists={config.playlists} />
+      <div style={{
+                display: "flex",
+                flexDirection: "column",
+                flex: 1
+            }}>
+              <Menu/>
+              <Header />
+              <TimeLine playlists={config.playlists} />
+      </div>
     </>
   )
 }
