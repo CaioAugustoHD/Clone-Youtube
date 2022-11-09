@@ -2,6 +2,7 @@ import config from "../config.json";
 import styled from "styled-components";
 
 import { GlobalStyle } from "../src/components/GlobalStyle";
+import { Menu } from "../src/components/Menu/index"
 
 
 const StyledHeader = styled.header`
@@ -63,6 +64,7 @@ function HomePage() {
   return (
     <>
       <GlobalStyle/>
+      <Menu/>
       <Header />
       <TimeLine playlists={config.playlists} />
     </>
