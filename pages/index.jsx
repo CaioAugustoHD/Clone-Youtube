@@ -2,16 +2,18 @@ import config from "../config.json";
 import styled from "styled-components";
 
 import { GlobalStyle } from "../src/components/GlobalStyle";
-import { Menu } from "../src/components/Menu/index"
+import { Menu } from "../src/components/Menu/index";
+import { TimeLine } from "../src/components/TimeLine/index"
 
 
-const StyledHeader = styled.header`
+const StyledHeader = styled.div`
   img {
     width: 80px;
     height: 80px;
     border-radius: 50%
   }
   .user-info {
+    margin-top: 50px;
     display: flex;
     align-items: center;
     gap: 16px;
@@ -34,31 +36,7 @@ function Header() {
   )
 }
 
-function TimeLine({ playlists }) {
-  const playlistName = Object.keys(playlists);
-  return (
-    <main>
-      {playlistName.map((playlist) => {
-        const videos = playlists[playlist];
-        return (
-          <section>
-            <h2>{playlist}</h2>
-            <div>
-              {videos.map((video) => {
-                return (
-                  <a href={video.url}>
-                    <img src={video.thumb} />
-                    <span>{video.title}</span>
-                  </a>
-                )
-                })}
-            </div>
-          </section>
-        )
-      })}
-    </main>
-  )
-}
+
 
 function HomePage() {
   return (
