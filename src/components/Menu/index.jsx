@@ -1,3 +1,4 @@
+import { Search } from "../Search";
 import { StyledMenu } from "./style"
 
 export function Menu() {
@@ -6,6 +7,7 @@ export function Menu() {
       <div>
         <Logo />
       </div>
+        <Search/> 
     </StyledMenu>
   );
 }
