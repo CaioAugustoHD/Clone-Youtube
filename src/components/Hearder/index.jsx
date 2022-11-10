@@ -1,10 +1,10 @@
-import { StyledHeader } from "./style"
+import { StyledHeader, StyledBanner } from "./style"
 import config from "../../../config.json"
 
 export function Header() {
     return (
       <StyledHeader>
-        <img src="" alt="Banner" />
+        <StyledBanner BannerURL={config.banner}/>
         <div className="user-info">
           <img src={`https://github.com/${config.github}.png`} alt="Foto de perfil" />
           <div>

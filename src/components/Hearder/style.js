@@ -7,11 +7,17 @@ export const StyledHeader = styled.div`
     border-radius: 50%
   }
   .user-info {
-    margin-top: 50px;
     display: flex;
     align-items: center;
     gap: 16px;
     width: 100%;
     padding: 16px 32px;
   }
+`;
+
+export const StyledBanner = styled.div`
+    background-color: #333;
+    background-image: url(${({BannerURL}) => BannerURL});
+    background-size: cover;
+    height: 230px;
 `;
