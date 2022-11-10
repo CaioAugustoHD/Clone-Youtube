@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { GlobalStyle } from "../src/components/GlobalStyle";
 import { Menu } from "../src/components/Menu/index";
 import { TimeLine } from "../src/components/TimeLine/index"
+import { useState } from "react";
 
 
 const StyledHeader = styled.div`
@@ -39,6 +40,8 @@ function Header() {
 
 
 function HomePage() {
+
+  const [valorDoFiltro, setValorDoFiltro] = useState("")
   return (
     <>
       <GlobalStyle/>
@@ -47,9 +50,9 @@ function HomePage() {
                 flexDirection: "column",
                 flex: 1
             }}>
-              <Menu/>
+              <Menu valorDoFiltro={valorDoFiltro} setValorDoFiltro={setValorDoFiltro}/>
               <Header />
-              <TimeLine playlists={config.playlists} />
+              <TimeLine playlists={config.playlists} searchValue={valorDoFiltro}/>
       </div>
     </>
   )

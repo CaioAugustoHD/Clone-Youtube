@@ -1,13 +1,13 @@
 import { Search } from "../Search";
 import { StyledMenu } from "./style"
 
-export function Menu() {
+export function Menu(props) {
   return (
     <StyledMenu>
       <div>
         <Logo />
       </div>
-        <Search/> 
+        <Search {...props}/> 
     </StyledMenu>
   );
 }

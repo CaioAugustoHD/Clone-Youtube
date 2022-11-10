@@ -1,6 +1,6 @@
 import { StyledTimeline } from "./style";
 
-export function TimeLine({ playlists }) {
+export function TimeLine({ playlists, searchValue}) {
     const playlistName = Object.keys(playlists);
     return (
       <StyledTimeline>
@@ -10,7 +10,11 @@ export function TimeLine({ playlists }) {
             <section>
               <h2>{playlist}</h2>
               <div>
-                {videos.map((video) => {
+                {videos.filter((video) => {
+                  const titleNormalized = video.title.toLowerCase();
+                  const searchValueNormalized = searchValue.toLowerCase();
+                  return titleNormalized.includes(searchValueNormalized)})
+                  .map((video) => {
                   return (
                     <a href={video.url}>
                       <img src={video.thumb} />
