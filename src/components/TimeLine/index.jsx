@@ -7,7 +7,7 @@ export function TimeLine({ playlists, searchValue }) {
       {playlistName.map((playlist) => {
         const videos = playlists[playlist];
         return (
-          <section>
+          <section key={playlist}>
             <h2>{playlist}</h2>
             <div>
               {videos.filter((video) => {
@@ -17,7 +17,7 @@ export function TimeLine({ playlists, searchValue }) {
               })
                 .map((video) => {
                   return (
-                    <a href={video.url}>
+                    <a key={video.url} href={video.url}>
                       <img src={video.thumb} />
                       <span>{video.title}</span>
                     </a>
