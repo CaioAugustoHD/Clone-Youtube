@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "../src/components/GlobalStyle";
 import { ColorModeContext, ColorModeProvider } from "../src/components/Menu/ColorMode";
+import { RegisterVideo } from "../src/components/RegisterVideo";
 
 const theme = {
     light: {
@@ -34,6 +35,7 @@ function MyApp({Component, pageProps}){
         <ThemeProvider theme={theme[contexto.mode]}>
             <GlobalStyle/>
             <Component {...pageProps}/>
+            <RegisterVideo/>
         </ThemeProvider>
     )
 }
