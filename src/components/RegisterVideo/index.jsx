@@ -9,16 +9,20 @@ function useForm(props) {
         handleChange: (e) => {
             const value = e.target.value;
             const name = e.target.name
-            setValues({ 
+            setValues({
                 ...values,
-                [name]: value })
+                [name]: value
+            })
+        },
+        clearForm() {
+            setValues({});
         }
     };
 }
 
 export function RegisterVideo() {
     const formCadastro = useForm({
-        initialValues: {titulo: "", url: ""}
+        initialValues: { titulo: "", url: "" }
     });
     const [formVisivel, setFormVisivel] = useState(false);
 
@@ -26,25 +30,29 @@ export function RegisterVideo() {
         <StyledRegisterVideo>
             <button className="add-video" onClick={() => setFormVisivel(true)}>+</button>
             {formVisivel ? (
-                <form onSubmit={(e) => e.preventDefault()}>
+                <form onSubmit={(e) => {
+                    e.preventDefault();
+                    setFormVisivel(true);
+                    formCadastro.clearForm()
+                }}>
                     <div>
-                        <button className="close-modal" onClick={() => setFormVisivel(true)}>X</button>
+                        <button type="buttom" className="close-modal" onClick={() => setFormVisivel(false)}>X</button>
                         <input
                             type="text"
                             placeholder="Título do vídeo"
                             name="titulo"
                             value={formCadastro.values.titulo}
                             onChange={formCadastro.handleChange}
-                            />
+                        />
 
-                        <input 
-                            type="text" 
+                        <input
+                            type="text"
                             placeholder="URL"
                             name="url"
                             value={formCadastro.values.url}
-                             onChange={formCadastro.handleChange}
-                             />
-                             
+                            onChange={formCadastro.handleChange}
+                        />
+
                         <button type="submit">Cadastrar</button>
                     </div>
                 </form>
