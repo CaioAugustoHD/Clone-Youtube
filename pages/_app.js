@@ -1,5 +1,7 @@
+import { useContext } from "react";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "../src/components/GlobalStyle";
+import { ColorModeContext, ColorModeProvider } from "../src/components/Menu/ColorMode";
 
 const theme = {
     light: {
@@ -18,13 +20,28 @@ const theme = {
     }
 };
 
-function MyApp({Component, pageProps}){
+function ProviderWrapper(props){
     return (
-        <ThemeProvider theme={theme.light}>
+        <ColorModeProvider initialMode={"light"}>
+            {props.children}
+        </ColorModeProvider>
+    )
+}
+
+function MyApp({Component, pageProps}){
+    const contexto = useContext(ColorModeContext);
+    return (
+        <ThemeProvider theme={theme[contexto.mode]}>
             <GlobalStyle/>
             <Component {...pageProps}/>
         </ThemeProvider>
     )
 }
 
-export default MyApp;
+export default function _App(props){
+    return (
+        <ProviderWrapper>
+            <MyApp {...props}/>
+        </ProviderWrapper>
+    )
+}

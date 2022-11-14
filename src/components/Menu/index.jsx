@@ -1,4 +1,5 @@
 import { Search } from "../Search";
+import { DarkModeSwitch } from "./DarkModeSwitch";
 import { StyledMenu } from "./style"
 
 export function Menu(props) {
@@ -8,6 +9,7 @@ export function Menu(props) {
         <Logo />
       </div>
         <Search {...props}/> 
+        <DarkModeSwitch/>
     </StyledMenu>
   );
 }
